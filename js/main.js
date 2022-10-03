@@ -1,26 +1,20 @@
 function getRandomNumber(min, max) {
-  if ((min < max) && ((min > -1) && (max > -1))) {
-    const resultat = Math.floor(Math.random() * ((max + 1) - min)) + min;
-    return resultat;
-  } else {
-    const resultat = 0 / 0;
-    return resultat;
+  if (min > max || min < 0 || max < 0 || isNaN(min) || isNaN(max)) {
+    return NaN;
   }
+
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
 
-getRandomNumber(1, 6);
+getRandomNumber(0, 2);
 
 
 function lengthString(inputText, maxlength) {
-
-  if (inputText.length > maxlength) {
-    const resultat = false;
-    return resultat;
-  } else {
-    const resultat = true;
-    return resultat;
-  }
+  return inputText.length >= maxlength;
 }
 
-lengthString('Рыбный текст – это текст, выполняющий исключительно утилитарную функцию', 71);
+
+lengthString('Рыбный текст – это текст, выполняющий исключительно утилитарную функцию', 72);
