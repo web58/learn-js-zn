@@ -1,5 +1,5 @@
 function getRandomNumber(min, max) {
-  if (min > max || min < 0 || max < 0 || typeof min !== 'number' || typeof max !== 'number') {
+  if (min > max || min < 0 || max < 0) {
     return NaN;
   }
 
@@ -15,6 +15,5 @@ getRandomNumber(0, 2);
 function checkLengthString(inputText, maxlength) {
   return inputText.length <= maxlength;
 }
-
 
 checkLengthString('Рыбный текст – это текст, выполняющий исключительно утилитарную функцию', 71);
