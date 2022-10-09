@@ -56,8 +56,12 @@ function creatObj(e) {
 }
 
 
-const creatArray = Array.from({
-  length: 25
-}, (e, index) => {
-  return creatObj(index);
-});
+function creatArray(e) {
+  const newAraay = [];
+  for (let i = 0; i < e; i++) {
+    newAraay.push(creatObj(i));
+  }
+  return newAraay;
+}
+
+creatArray(25);
