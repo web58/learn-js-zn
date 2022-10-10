@@ -20,34 +20,33 @@ checkLengthString('Рыбный текст – это текст, выполня
 
 
 // Функции генерации поста
-const PHOTO_DESCRIPTION = [
+const PHOTO_DESCRIPTIONS = [
   'Однако ее карьера могла не быть такой блестящей, если бы актриса не получила культовую роль Китнисс Эвердин, для которой ее посчитали слишком красивой.',
   'КС, Х — тут мы имеем дело с женщинами, готовыми совершать спонтанные поступки.',
   'Ну и самый неуклюжий способ погибнуть от огня в джунглях — сунуться в огненные ворота в храме, не обезвредив их предварительно.',
   'Она боится влюбляться, потому что погружается в отношения с полной отдачей.',
 ];
 
-function creatValue(value) {
+function createArrayConsecutiveNumbers(value) {
   const mySet = new Set();
-  let newArray = [];
-  for (let i = 0; newArray.length < value; i++) {
-    newArray = Array.from(mySet.add(getRandomNumber(0, value)));
+  for (let i = 0; mySet.size < value; i++) {
+    mySet.add(getRandomNumber(1, value));
   }
-  return newArray;
+  return [...mySet];
 }
 
-function getRandomArrayElement(e) {
-  return e[getRandomNumber(0, e.length - 1)];
+function getRandomArrayElement(element) {
+  return element[getRandomNumber(0, element.length - 1)];
 }
 
-const arrayId = creatValue(25);
-const arrayUrl = creatValue(25);
+const arrayId = createArrayConsecutiveNumbers(25);
+const arrayUrl = createArrayConsecutiveNumbers(25);
 
-function creatObj(e) {
+function creatObj(i) {
   return {
-    id: arrayId[e],
-    url: `photos/${arrayUrl[e]}.jpg`,
-    description: getRandomArrayElement(PHOTO_DESCRIPTION),
+    id: arrayId[i],
+    url: `photos/${arrayUrl[i]}.jpg`,
+    description: getRandomArrayElement(PHOTO_DESCRIPTIONS),
     likes: getRandomNumber(15, 200),
     comments: getRandomNumber(0, 200),
   };
@@ -56,12 +55,12 @@ function creatObj(e) {
 }
 
 
-function creatArray(e) {
-  const newAraay = [];
-  for (let i = 0; i < e; i++) {
-    newAraay.push(creatObj(i));
+function creatDescriptionsPhoto(value) {
+  const result = [];
+  for (let i = 0; i < value; i++) {
+    result.push(creatObj(i));
   }
-  return newAraay;
+  return result;
 }
 
-creatArray(25);
+creatDescriptionsPhoto(25);
