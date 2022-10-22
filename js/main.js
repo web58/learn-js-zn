@@ -2,4 +2,8 @@ import {
   creatDescriptionsPhoto
 } from './data.js';
 
-creatDescriptionsPhoto(25);
+import {
+  renderPicture,
+} from './picture.js';
+
+renderPicture(creatDescriptionsPhoto(25));
