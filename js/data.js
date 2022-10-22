@@ -2,7 +2,7 @@ import {
   getRandomNumber
 } from './util.js';
 
-
+const ELEMENT_PICTURE_CONT = 25;
 // Функции генерации поста
 const PHOTO_DESCRIPTIONS = [
   'Однако ее карьера могла не быть такой блестящей, если бы актриса не получила культовую роль Китнисс Эвердин, для которой ее посчитали слишком красивой.',
@@ -23,8 +23,8 @@ function getRandomArrayElement(element) {
   return element[getRandomNumber(0, element.length - 1)];
 }
 
-const arrayId = createArrayConsecutiveNumbers(25);
-const arrayUrl = createArrayConsecutiveNumbers(25);
+const arrayId = createArrayConsecutiveNumbers(ELEMENT_PICTURE_CONT);
+const arrayUrl = createArrayConsecutiveNumbers(ELEMENT_PICTURE_CONT);
 
 function creatObj(i) {
   return {
