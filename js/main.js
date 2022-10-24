@@ -1,9 +1,5 @@
 import {
-  creatDescriptionsPhoto
-} from './data.js';
-
-import {
-  renderPicture,
+  createPictures,
 } from './picture.js';
 
-renderPicture(creatDescriptionsPhoto(25));
+createPictures();

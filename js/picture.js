@@ -1,6 +1,10 @@
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const container = document.querySelector('.pictures');
+import {
+  creatDescriptionsPhoto,
+  ELEMENT_PICTURE_COUNT,
+} from './data.js';
 
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const containerPictures = document.querySelector('.pictures');
 
 function createPicture(data) {
   const {
@@ -20,15 +24,15 @@ function createPicture(data) {
   return picture;
 }
 
-function renderPicture(pictures) {
+function renderPictures(pictures) {
   const postsFragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const pictureElement = createPicture(picture);
     postsFragment.append(pictureElement);
   });
-  container.append(postsFragment);
+  containerPictures.append(postsFragment);
 }
 
-export {
-  renderPicture
-};
+export function createPictures() {
+  renderPictures(creatDescriptionsPhoto(ELEMENT_PICTURE_COUNT));
+}
