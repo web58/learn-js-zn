@@ -1,5 +1,5 @@
 import {
-  creatDescriptionsPhoto
-} from './data.js';
+  createPictures,
+} from './picture.js';
 
-creatDescriptionsPhoto(25);
+createPictures();
