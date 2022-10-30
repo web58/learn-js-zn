@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кекстаграм</title>
-
-  </script>
 </head>
 
 <body>
@@ -116,7 +114,9 @@
 
                 <!-- Добавление комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
+                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..." required
+                    minlength="20" maxlength="140" data-pristine-required-message="Это полее обязательно для заполнения"
+                    data-pristine-minlength-message="Нужно более 20 символов"></textarea>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->
@@ -179,7 +179,9 @@
     </section>
   </template>
 
+  <script src="vendor/pristine/pristine.min.js"></script>
   <script type="module" defer src="/js/main.js"></script>
+
 </body>
 
 
