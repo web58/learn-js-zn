@@ -15,8 +15,12 @@ function checkLengthString(inputText, maxlength) {
 
 checkLengthString('Рыбный текст – это текст, выполняющий исключительно утилитарную функцию', 71);
 
+function isEscapeKey(evt) {
+  return evt.key === 'Escape';
+}
 
 export {
   getRandomNumber,
   checkLengthString,
+  isEscapeKey,
 };
