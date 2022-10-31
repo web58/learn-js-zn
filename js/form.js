@@ -6,9 +6,6 @@ const uploadPictureElement = document.querySelector('#upload-select-image');
 const openModalElement = uploadPictureElement.querySelector('.img-upload__overlay');
 const uploadFile = uploadPictureElement.querySelector('#upload-file');
 const closeModalCancel = uploadPictureElement.querySelector('#upload-cancel');
-const successTemplate = document.querySelector('#success').content.querySelector('.success');
-const successPopup = successTemplate.cloneNode(true);
-const successBtn = successPopup.querySelector('.success__button');
 const validateFormDescription = new Pristine(uploadPictureElement, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
@@ -18,19 +15,18 @@ const validateFormDescription = new Pristine(uploadPictureElement, {
 function openModal() {
   openModalElement.classList.remove('hidden');
   document.body.classList.add('modal-open');
-  document.addEventListener('keydown', onModalEscKeydown);
+  document.addEventListener('keydown', onEscKeydown);
 }
 
 function closeModal() {
   uploadPictureElement.reset();
   openModalElement.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', onModalEscKeydown);
+  document.removeEventListener('keydown', onEscKeydown);
 }
 
-function onModalEscKeydown(evt) {
+function onEscKeydown(evt) {
   if (isEscapeKey(evt)) {
-    evt.preventDefault();
     closeModal();
   }
 }
@@ -43,6 +39,4 @@ export {
   openModal,
   closeModal,
   validateFormDescription,
-  successPopup,
-  successBtn,
 };
