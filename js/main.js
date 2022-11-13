@@ -1,6 +1,6 @@
 import {
-  createPictures,
-} from './picture.js';
+  renderPictures,
+} from './rendering-picture.js';
 
 import {
   uploadPictureElement,
@@ -8,17 +8,14 @@ import {
   closeModalCancel,
   openModal,
   closeModal,
-  validateFormDescription,
 } from './form.js';
 
-createPictures();
+import {
+  setFormSubmit
+} from './send-form.js';
+
+renderPictures();
 
 uploadFile.addEventListener('change', openModal);
 closeModalCancel.addEventListener('click', closeModal);
-
-
-uploadPictureElement.addEventListener('submit', (evt) => {
-  if (!validateFormDescription.validate()) {
-    evt.preventDefault();
-  }
-});
+uploadPictureElement.addEventListener('submit', setFormSubmit);
