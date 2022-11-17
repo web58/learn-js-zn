@@ -15,18 +15,24 @@ import {
 function setFormSubmit(evt) {
   evt.preventDefault();
   if (validateFormDescription.validate()) {
-    const formDate = new FormData(evt.target);
+    const formData = new FormData(evt.target);
+    const BtnSubmit = evt.target.querySelector('button[type="submit"]');
+    BtnSubmit.setAttribute('disabled', true);
 
     fetch('https://27.javascript.pages.academy/kekstagram-simple', {
       method: 'POST',
-      body: formDate,
+      body: formData,
     })
-      .then(() => {
-        successMessage();
-        closeModal();
+      .then((data) => {
+        if (data.ok) {
+          successMessage();
+          closeModal();
+        } else {
+          errorMessage();
+        }
       })
-      .catch(() => errorMessage());
-
+      .catch(() => errorMessage())
+      .finally(() => BtnSubmit.removeAttribute('disabled'));
   }
 }
 
